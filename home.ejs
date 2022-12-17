@@ -1,0 +1,20 @@
+<%- include ("partials/header"); -%> <!--includeded the header file specified in partial folder using view engine and same below-->
+
+<h1>Home</h1>
+<p><%= homeSection %></p>
+
+<!--<% for(var i=0;i<newpost.length;i++){ %>
+<%    console.log(newpost[i].title); %>
+<% } %>
+instead of using that we can use foreach method for loopin throught all the elements-->
+
+<% newpost.forEach(function(title){ %>
+    <h1><%= title.title %></h1>
+    <p><%= title.contents.substring(1, 100) + "..." %>
+    <a href="/posts/<%=title.title%>">read more</a>  <!-- here we used the ejs params to gotito the seperate page as we mentioned in the app.get method because each title in linked and new to the params-->
+</p> <!--and we use here the substring for only showing 100 characters to the homepage so we need to do that...-->
+<% }) %>   <!--use this loop instead of standard for loop-->
+
+
+<%- include ("partials/footer"); -%>
+
